@@ -9,4 +9,10 @@ var findDisappearedNumbers = function(nums) {
         if (!set.has(i)) arr.push(i)
     }
     return arr
+
+    // const arr = []
+    // for(i = 1; i <= nums.length; i++) {
+    //     if (!nums.includes(i)) arr.push(i)
+    // }
+    // return arr
 };
