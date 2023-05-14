@@ -8,9 +8,7 @@ var alternateDigitSum = function (n) {
     let sum = 0;
     for (let i = 0; i < strN.length; i++) {
         const digit = parseInt(strN[i])
-        pos
-            ? sum += digit
-            : sum -= digit
+        pos ? sum += digit : sum -= digit
         pos = !pos
     }
     return sum
