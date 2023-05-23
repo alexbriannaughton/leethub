@@ -21,9 +21,8 @@ var threeSumClosest = function (nums, target) {
                 sum = locSum;
             }
 
-            if (locSum > target) {
-                right--;
-            } else left++;
+            if (locSum > target) right--;
+            else left++;
         };
     };
     return sum;
