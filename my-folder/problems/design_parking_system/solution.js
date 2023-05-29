@@ -4,7 +4,7 @@
  * @param {number} small
  */
 var ParkingSystem = function (big, medium, small) {
-    this.spots = [big, medium, small]
+    this.spots = [big, medium, small];
 };
 
 /** 
@@ -12,7 +12,7 @@ var ParkingSystem = function (big, medium, small) {
  * @return {boolean}
  */
 ParkingSystem.prototype.addCar = function (carType) {
-    return this.spots[carType - 1]-- > 0
+    return this.spots[carType - 1]-- > 0;
 };
 
 /** 
