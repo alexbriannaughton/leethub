@@ -11,8 +11,5 @@ var minNumber = function(nums1, nums2) {
         if (nums2.includes(nums1[i])) return nums1[i];
     }
 
-    const n1 = nums1[0];
-    const n2 = nums2[0];
-
-    return [n1, n2].sort().join("");
+    return [nums1[0], nums2[0]].sort().join("");
 };
