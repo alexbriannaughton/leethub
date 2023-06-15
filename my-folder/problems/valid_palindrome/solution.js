@@ -3,39 +3,42 @@
  * @return {boolean}
  */
 var isPalindrome = function (s) {
-    
-    // if (s.length === 1) return true
-
-    let i = 0
-    let j = s.length - 1
-    
-    function isValidChar(c) {
-        return (c.charCodeAt(0) > 96 && c.charCodeAt(0) < 123) || (c.charCodeAt(0) > 47 && c.charCodeAt(0) < 58)
+    // function to check if i care about the current character
+    function dontCare(char) {
+        const charCode = char.charCodeAt(0);
+        return (charCode < 97 || charCode > 122) &&
+            !(charCode >= 48 && charCode <= 57)
     }
-  
-    while (i < j) {
-        const curChar1 = s[i].toLowerCase()
-        const curChar2 = s[j].toLowerCase()
+
+    s = s.toLowerCase();
+    
+    // set up pointer at the beginning of s and at end of s
+    let left = 0;
+    let right = s.length - 1;
+
+    while (left < right) {
+        const leftChar = s[left]
+        const rightChar = s[right]
+
+        // if i dont care about the character, move to the next
+        if (dontCare(leftChar)){
+            left++;
+            continue;
+        }
+        if (dontCare(rightChar)) {
+            right--;
+            continue;
+        }
+
+        // once i have 2 characters that i care about, check if they're the same
+        // if they're not, this is not a palindrome
+        if (leftChar !== rightChar) return false;
         
-        if (!isValidChar(curChar1)) {
-            i++
-            continue
-        }
-
-        if (!isValidChar(curChar2)) {
-            j--
-            continue
-        }
-    
-        if (curChar1 !== curChar2) return false
-
-        i++
-        j--
+        // if they are the same character, move on to the next ones
+        left++;
+        right--;
     }
-    
-    // if (!isValidChar(s[i]) && !isValidChar(s[j])) {
-    //     return false
-    // }
 
-    return true
+    // if i've made it this far then it must be a palindrome
+    return true;
 };
