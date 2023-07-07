@@ -4,13 +4,24 @@
  * @return {boolean}
  */
 var wordPattern = function(pattern, s) {
-    let arr = s.split(" ")
-    let sP = {}
-    let sS = {}
+        const p1 = numberize(pattern);
+    const s1 = numberize(s.split(" "));
     
-    for (let i = 0; i < s.length; i++) {
-        sP[pattern[i]] = i
-        sS[arr[i]] = i
+    function numberize(word) {
+        let counter = 1;
+        const obj = {};
+        let nOfPattern = "";
+        for (let i = 0; i < word.length; i++) {
+            let cur = word[i];
+            if (cur === 'constructor') cur = '_constructor_'
+            if (!obj[cur]) {
+                obj[cur] = counter;
+                counter++;
+            }
+            nOfPattern += obj[cur];
+        }
+        return nOfPattern;
     }
-    return Object.values(sP).join("") === Object.values(sS).join("")
+    
+    return p1 === s1;
 };
