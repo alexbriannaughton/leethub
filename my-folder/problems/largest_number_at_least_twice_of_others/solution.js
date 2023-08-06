@@ -8,7 +8,6 @@ var dominantIndex = function(nums) {
 
     for (let i = 0; i < nums.length; i++) {
         const num = nums[i]; 
-
         if (num === max) ind = i;
         else if (num > max / 2) return -1;
     }
