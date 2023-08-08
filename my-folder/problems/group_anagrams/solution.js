@@ -3,11 +3,11 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-    let obj = {}
+    let obj = {};
     
     for (str of strs) {
-        const letters = str.split("").sort().join("")
-        obj[letters] ? obj[letters].push(str) : obj[letters] = [str]
+        const letters = str.split("").sort().join("");
+        obj[letters] ? obj[letters].push(str) : obj[letters] = [str];
     }
-    return Object.values(obj)
+    return Object.values(obj);
 };
