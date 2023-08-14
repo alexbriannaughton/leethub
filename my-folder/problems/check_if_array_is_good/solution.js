@@ -4,25 +4,24 @@
  */
 var isGood = function (nums) {
     // version 1
-
-    // const goodNumber = nums.length - 1;
-    // const first = nums.indexOf(goodNumber);
-    // const last = nums.lastIndexOf(goodNumber);
-    // if (first === last || first === -1 || last === -1) {
-    //     return false;
-    // }
-    // const hash = {};
-    // for (n of nums) {
-    //     if (n > goodNumber) return false;
-    //     if (hash[n]) {
-    //         if (n === goodNumber) {
-    //             if (++hash[n] > 2) return false;
-    //         }
-    //         else return false;
-    //     }
-    //     else hash[n] = 1;
-    // }
-    // return true;
+    const goodNumber = nums.length - 1;
+    const first = nums.indexOf(goodNumber);
+    const last = nums.lastIndexOf(goodNumber);
+    if (first === last || first === -1 || last === -1) {
+        return false;
+    }
+    const hash = {};
+    for (n of nums) {
+        if (n > goodNumber) return false;
+        if (hash[n]) {
+            if (n === goodNumber) {
+                if (++hash[n] > 2) return false;
+            }
+            else return false;
+        }
+        else hash[n] = 1;
+    }
+    return true;
 
 
 
@@ -42,17 +41,17 @@ var isGood = function (nums) {
 
 
     // version 3
-    const max = Math.max(...nums);
-    if (max !== nums.length - 1) return false;
-    const hash = {};
-    for (n of nums) {
-        if (hash[n]) {
-            if (n === max) {
-                if (++hash[n] > 2) return false;
-            }
-            else return false;
-        }
-        else hash[n] = 1;
-    }
-    return true;
+    // const max = Math.max(...nums);
+    // if (max !== nums.length - 1) return false;
+    // const hash = {};
+    // for (n of nums) {
+    //     if (hash[n]) {
+    //         if (n === max) {
+    //             if (++hash[n] > 2) return false;
+    //         }
+    //         else return false;
+    //     }
+    //     else hash[n] = 1;
+    // }
+    // return true;
 };
