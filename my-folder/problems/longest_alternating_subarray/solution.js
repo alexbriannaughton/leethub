@@ -4,6 +4,7 @@
  */
 var alternatingSubarray = function (nums) {
     let max = -1
+    let i = 0
     for (let i = 0; i < nums.length; i++) {
         const start = nums[i]
         let shouldBeSameAsStart = false
