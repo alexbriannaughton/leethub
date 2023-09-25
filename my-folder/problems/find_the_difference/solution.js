@@ -4,16 +4,23 @@
  * @return {character}
  */
 var findTheDifference = function (s, t) {
-    const sObj = {};
-    for (let i = 0; i < s.length; i++) {
-        !sObj[s[i]]
-            ? sObj[s[i]] = 1
-            : sObj[s[i]]++;
-    }
-    for (let i = 0; i < t.length; i++) {
-        if (!sObj[t[i]]) {
-            return t[i];
+    // v1
+    // const obj = {}
+    // for (char of s) {
+    //     obj[char] = (obj[char] || 0) + 1
+    // }
+    // for (char of t) {
+    //     if (!obj[char]) return char
+    //     obj[char]--
+    // }
+
+    // v2
+    s = s.split("")
+    for (char of t) {
+        const i = s.indexOf(char)
+        if (i === -1) {
+            return char
         }
-        sObj[t[i]]--;
+        s.splice(i, 1)
     }
 };
