@@ -3,11 +3,14 @@
  * @return {number}
  */
 var numIdenticalPairs = function(nums) {
-    let answer = 0
-    for (let i = 0; i < nums.length - 1; i++) {
-        for (let j = i + 1; j < nums.length; j++) {
-            if (nums[i] === nums [j]) answer++
-        }
+    const obj = {}
+    for (n of nums) {
+        obj[n] = (obj[n] || 0) + 1
     }
-    return answer
+    let count = 0
+    for (num in obj) {
+        const n = obj[num]
+        count += n * (n - 1) / 2
+    }
+    return count
 };
